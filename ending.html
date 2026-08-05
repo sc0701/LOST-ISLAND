@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Lost Island - 엔딩</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="ending-container">
+        <h1 id="ending-title">게임 종료</h1>
+        <p id="ending-desc">결과를 불러오는 중...</p>
+        <button onclick="location.href='index.html'">타이틀로 돌아가기</button>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(location.search);
+        const win = params.get('win') === '1';
+        const reason = params.get('reason') || (win ? '무사히 살아남았다.' : '생존에 실패했다.');
+        const day = params.get('day') || '?';
+
+        document.getElementById('ending-title').innerText = win ? '🎉 생존 성공!' : '💀 생존 실패';
+        document.getElementById('ending-title').style.color = win ? '#4ade80' : '#f87171';
+        document.getElementById('ending-desc').innerText = `${reason} (${day}일차)`;
+    </script>
+</body>
+</html>

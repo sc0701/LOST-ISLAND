@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Lost Island - 메인 게임</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 상단: 날짜 및 스탯 -->
+        <header>
+            <h1 id="day-display">DAY 1 · 08:00</h1>
+            <div id="stats-container">
+                <p>❤️ 체력: <span id="stat-health">100</span></p>
+                <p>⚡ 스태미나: <span id="stat-stamina">100</span></p>
+                <p>🍖 배고픔: <span id="stat-hunger">100</span></p>
+                <p>💧 갈증: <span id="stat-thirst">100</span></p>
+                <p>🧠 정신력: <span id="stat-sanity">100</span></p>
+                <p>🔥 체온: <span id="stat-temp">36.5</span>℃</p>
+            </div>
+            <hr>
+        </header>
+
+        <div id="visual-area">
+            <img id="bg-image" src="assets/bg/beach_day.png" alt="현재 배경">
+            <img id="player-image" src="assets/characters/player_normal.png" alt="주인공 상태">
+        </div>
+
+        <div id="island-map">
+            <svg class="map-svg" viewBox="0 0 400 250" preserveAspectRatio="none">
+                <rect width="400" height="250" fill="#1c3d5a"/>
+                <path d="M60,40 C40,80 40,170 90,205 C140,230 260,235 320,200 C370,175 380,110 350,70 C320,30 250,15 180,20 C130,22 80,15 60,40 Z" fill="#c7ab6e" stroke="#8a7346" stroke-width="2"/>
+                <ellipse cx="120" cy="50" rx="55" ry="35" fill="#3f6b3f" opacity="0.88"/>
+                <ellipse cx="280" cy="100" rx="52" ry="40" fill="#355c35" opacity="0.88"/>
+                <ellipse cx="160" cy="175" rx="55" ry="35" fill="#3f6b3f" opacity="0.88"/>
+                <ellipse cx="200" cy="22" rx="48" ry="16" fill="#e8d8a8" opacity="0.92"/>
+                <ellipse cx="80" cy="200" rx="46" ry="20" fill="#e8d8a8" opacity="0.92"/>
+                <circle cx="340" cy="75" r="26" fill="#4a4a55" stroke="#2c2c34" stroke-width="2"/>
+                <circle cx="200" cy="125" r="18" fill="#d1ab61" stroke="#7a5b28" stroke-width="2"/>
+            </svg>
+            <div id="map-nodes"></div>
+        </div>
+
+        <!-- 중단: 인벤토리 및 행동 버튼 -->
+        <main>
+            <div id="inventory">
+                <h3>🎒 인벤토리</h3>
+                <div id="inventory-grid"></div>
+            </div>
+            <hr>
+            <div id="action-buttons">
+                <!-- JS로 렌더링됩니다 -->
+            </div>
+        </main>
+
+        <!-- 이벤트 발생 시 띄울 모달창 -->
+        <div id="event-modal" class="game-modal" style="display: none;">
+            <div class="modal-content">
+                <h2 id="event-title">이벤트 제목</h2>
+                <p id="event-desc">이벤트 설명</p>
+                <div id="event-choices" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+
+        <!-- 제작 / 건설 모달 -->
+        <div id="craft-modal" class="game-modal" style="display: none;">
+            <div class="modal-content">
+                <h2>🔨 제작 / 건설</h2>
+                <div id="craft-list" class="scroll-list"></div>
+                <button onclick="UIController.closeCraftModal()">닫기</button>
+            </div>
+        </div>
+
+        <!-- 조합 실험 모달 -->
+        <div id="combo-modal" class="game-modal" style="display: none;">
+            <div class="modal-content">
+                <h2>🧪 재료 조합 실험</h2>
+                <div id="combo-list"></div>
+                <button onclick="UIController.closeComboModal()">닫기</button>
+            </div>
+        </div>
+
+        <!-- 요리 모달 -->
+        <div id="cook-modal" class="game-modal" style="display: none;">
+            <div class="modal-content">
+                <h2>🔥 모닥불에 굽기</h2>
+                <div id="cook-list" class="scroll-list"></div>
+                <button onclick="UIController.closeCookModal()">닫기</button>
+            </div>
+        </div>
+
+        <!-- 토스트 알림 -->
+        <div id="toast"></div>
+    </div>
+
+    <!-- 🌟 자바스크립트 파일 연결 (순서 중요) -->
+    <script src="js/state.js"></script>
+    <script src="js/data/foods.js"></script>
+    <script src="js/data/resources.js"></script>
+    <script src="js/data/recipes.js"></script>
+    <script src="js/data/events.js"></script>
+    <script src="js/systems/eventSystem.js"></script>
+    <script src="js/systems/craftSystem.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

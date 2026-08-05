@@ -1,0 +1,68 @@
+#inventory {
+    background: #191921;
+    padding: 12px;
+    border-radius: 10px;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+#inventory h3 {
+    font-size: 1rem;
+    color: #38bdf8;
+    margin-bottom: 8px;
+    position: sticky;
+    top: 0;
+}
+
+.inv-section {
+    margin-bottom: 10px;
+}
+.inv-section h4 {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 6px;
+    font-weight: normal;
+}
+
+.inv-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #24242f;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    font-size: 0.82rem;
+}
+.inv-item b { color: #facc15; }
+
+.inv-eat-btn {
+    background: #16a34a;
+    color: #fff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    cursor: pointer;
+}
+.inv-eat-btn:active { background: #15803d; }
+
+.inv-empty {
+    color: #64748b;
+    font-size: 0.78rem;
+    padding: 4px 2px;
+}
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.tag {
+    background: #312e1f;
+    color: #facc15;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    border: 1px solid #7a5b28;
+}

@@ -1,0 +1,110 @@
+.game-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100dvh;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #2b2b36;
+    padding: 22px;
+    width: 100%;
+    max-width: 400px;
+    max-height: 82vh;
+    overflow-y: auto;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+}
+
+.modal-content h2 {
+    color: #f87171;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+#event-choices, .scroll-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.modal-content > button {
+    width: 100%;
+    margin-top: 16px;
+    background: #3b3b4f;
+}
+.modal-content > button:hover { background: #5a5a75; }
+
+#event-choices button {
+    width: 100%;
+    margin: 0;
+    background: #2563eb;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+#event-choices button:hover { background: #3b82f6; }
+
+/* 제작 / 요리 리스트 */
+.craft-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background: #1f1f28;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-align: left;
+}
+.craft-info { font-size: 0.85rem; }
+.craft-req {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 3px;
+}
+.badge-done {
+    color: #4ade80;
+    font-size: 0.72rem;
+    margin-left: 6px;
+}
+.craft-item button {
+    background: #16a34a;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.craft-item button:disabled {
+    background: #374151;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+/* 조합 실험 */
+.combo-selects {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.combo-selects select {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #4a4a5c;
+    background: #1f1f28;
+    color: #e2e8f0;
+    font-size: 0.82rem;
+}
